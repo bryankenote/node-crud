@@ -13,4 +13,23 @@ router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
+// create
+router.post('/quotes', (req, res) => {
+    var db = req.db;
+    var name = req.body.name;
+    var quote = req.body.quote;
+    
+    var collection = db.get('quoteCollection');
+    collection.insert({
+        "name": name,
+        "quote": quote
+    }, (err, doc) => {
+        if (err) {
+            res.send("There was a problem adding the quote to the database.");
+        } else {
+            res.redirect('/');
+        }
+    });
+});
+
 module.exports = router;
