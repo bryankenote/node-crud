@@ -1,5 +1,29 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Just another CRUDy quote app
+        
+  h3 Quotes
+  ul.quotes
+    each quote in quotes
+      li(class="quote")
+        span= quote.name
+        span= quote.quote
+        
+  hr
+  
+  h4 Add a new quote
+  form(action="/quotes" method="POST")
+    input(type="text" placeholder="name" name="name")
+    input(type="text" placeholder="quote" name="quote")
+    button(type="submit") Submit
+      
+  hr
+      
+  h4 update an existing quote
+  #update
+    input(type="text" placeholder="name" name="name")
+    input(type="text" placeholder="quote" name="quote")
+    button(type="submit") Submit
+      
+  hr
