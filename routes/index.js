@@ -55,4 +55,20 @@ router.put('/quotes', function (req, res) {
     );
 });
 
+//delete 
+router.delete('/quotes', function (req, res) {
+    var db = req.db;
+    var id = req.body.id;
+    
+    db.collection('quoteCollection').findOneAndDelete(
+        { '_id': id },
+        function (err, result) {
+            if (err)
+                res.send('Could not update the quote');
+            else
+                res.send(result);
+        }
+    );
+});
+
 module.exports = router;

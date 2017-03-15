@@ -16,7 +16,7 @@ block content
     h3 Quotes
     ul.quotes
       each quote in quotes
-        li.quote
+        li.quote(id=quote._id)
           span= quote.name
           span= quote.quote
           button.update-btn
@@ -24,7 +24,9 @@ block content
           button.delete-btn
             i(class="fa fa-trash" aria-hidden="true")
           .update-info(class="hidden")
-            input(class="update-name" type="text" placeholder="name" name="name" required)
-            input(class="update-quote" type="text" placeholder="quote" name="quote" required)
-            button(id=quote._id class="update-confirm" type="submit")
+            input(class="update-name" type="text" placeholder="name" name="name")
+            input(class="update-quote" type="text" placeholder="quote" name="quote")
+            button(id=quote._id class="update-confirm")
               i(class="fa fa-check" aria-hidden="true")
+            button.cancel
+              i(class="fa fa-times" aria-hidden="true")
