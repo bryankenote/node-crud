@@ -5,12 +5,15 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     var db = req.db;
     var collection = db.get('quoteCollection');
-    collection.find({},{},function(e,docs){
-        res.render('index', {
-            "quotes" : docs
-        });
+    collection.find({},{},function(err,docs){
+        if (err) {
+            res.send("There was a problem retrieving quotes from the database.");
+        } else {
+            res.render('index', {
+                "quotes" : docs
+            });
+        }
     });
-  //res.render('index', { title: 'Express' });
 });
 
 // create
