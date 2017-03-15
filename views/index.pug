@@ -6,8 +6,8 @@ block content
     
     h4 Add a new quote
     form(action="/quotes" method="POST")
-      input(type="text" placeholder="name" name="name")
-      input(type="text" placeholder="quote" name="quote")
+      input(type="text" placeholder="name" name="name" required)
+      input(type="text" placeholder="quote" name="quote" required)
       button(type="submit")
         i(class="fa fa-plus" aria-hidden="true")
       
@@ -19,7 +19,12 @@ block content
         li.quote(id=quote._id)
           span= quote.name
           span= quote.quote
-          button#update
+          button#update-btn
             i(class="fa fa-pencil" aria-hidden="true")
-          button#delete
+          button#delete-btn
             i(class="fa fa-trash" aria-hidden="true")
+          #update-info.hidden
+            input(type="text" placeholder="name" name="name" required)
+            input(type="text" placeholder="quote" name="quote" required)
+            button(type="submit")
+              i(class="fa fa-check" aria-hidden="true")
