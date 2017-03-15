@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     var db = req.db;
     var collection = db.get('quoteCollection');
     collection.find({},{},function(err,docs){
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 // create
-router.post('/quotes', (req, res) => {
+router.post('/quotes', function (req, res) {
     var db = req.db;
     var name = req.body.name;
     var quote = req.body.quote;
@@ -33,6 +33,26 @@ router.post('/quotes', (req, res) => {
             res.redirect('/');
         }
     });
+});
+
+// update
+router.put('/quotes', function (req, res) {
+    var db = req.db;
+    var id = req.body.id;
+    var name = req.body.name;
+    var quote = req.body.quote;
+    
+    db.collection('quoteCollection').findOneAndUpdate(
+        { '_id': id },
+        { $set: { name: name, quote: quote } },
+        //{ sort: { _id: -1 }, upsert: true },
+        function (err, result) {
+            if (err)
+                res.send('Could not update the quote');
+            else
+                res.send(result);
+        }
+    );
 });
 
 module.exports = router;
