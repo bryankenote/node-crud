@@ -16,15 +16,15 @@ block content
     h3 Quotes
     ul.quotes
       each quote in quotes
-        li.quote(id=quote._id)
+        li.quote
           span= quote.name
           span= quote.quote
-          button#update-btn
+          button.update-btn
             i(class="fa fa-pencil" aria-hidden="true")
-          button#delete-btn
+          button.delete-btn
             i(class="fa fa-trash" aria-hidden="true")
-          #update-info.hidden
-            input(type="text" placeholder="name" name="name" required)
-            input(type="text" placeholder="quote" name="quote" required)
-            button(type="submit")
+          .update-info(class="hidden")
+            input(class="update-name" type="text" placeholder="name" name="name" required)
+            input(class="update-quote" type="text" placeholder="quote" name="quote" required)
+            button(id=quote._id class="update-confirm" type="submit")
               i(class="fa fa-check" aria-hidden="true")
