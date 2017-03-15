@@ -27,7 +27,7 @@ $(function () {
     });
     
     $('.cancel').on('click', function() {
-        console.log('cancel');
+        $(this).last().parent().addClass('hidden');
     });
     
     // update quote btn
