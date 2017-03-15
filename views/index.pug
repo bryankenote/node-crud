@@ -1,21 +1,25 @@
 extends layout
 
 block content
-  h1 Just another CRUDy quote app
-  
-  h4 Add a new quote
-  form(action="/quotes" method="POST")
-    input(type="text" placeholder="name" name="name")
-    input(type="text" placeholder="quote" name="quote")
-    button(type="submit") Submit
+  .container
+    h1 Just another CRUDy quote app
     
-  hr
-  
-  h3 Quotes
-  ul.quotes
-    each quote in quotes
-      li.quote
-        span= quote.name
-        span= quote.quote
-        button update
-        button delete
+    h4 Add a new quote
+    form(action="/quotes" method="POST")
+      input(type="text" placeholder="name" name="name")
+      input(type="text" placeholder="quote" name="quote")
+      button(type="submit")
+        i(class="fa fa-plus" aria-hidden="true")
+      
+    hr
+    
+    h3 Quotes
+    ul.quotes
+      each quote in quotes
+        li.quote(id=quote._id)
+          span= quote.name
+          span= quote.quote
+          button#update
+            i(class="fa fa-pencil" aria-hidden="true")
+          button#delete
+            i(class="fa fa-trash" aria-hidden="true")
