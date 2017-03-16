@@ -17,8 +17,8 @@ block content
     ul.quotes
       each quote in quotes
         li.quote(id=quote._id)
-          span= quote.name
-          span= quote.quote
+          span#quote-text= quote.quote
+          span#name-text= quote.name
           button.update-btn
             i(class="fa fa-pencil" aria-hidden="true")
           button.delete-btn

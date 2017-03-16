@@ -13,7 +13,7 @@ $(function () {
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify(deleteData),
             success: function(data) {
-                alert('Delete was performed.');
+                $('#' + data._id).remove();
             }
         });       
     });
@@ -47,7 +47,9 @@ $(function () {
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify(updatedData),
             success: function(data) {
-                alert('Load was performed.');
+                $('#' + data._id + ' > #quote-text').html(data.quote);
+                $('#' + data._id + ' > #name-text').html(data.name);
+                $('#' + data._id + ' > .update-info').addClass('hidden');
             }
         });
     });
