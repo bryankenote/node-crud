@@ -1,4 +1,27 @@
 $(function () {
+    // create quote btn
+    $('#save-quote').on('click', function () {
+        var createData = {
+            'name': $('#create-name').val(),
+            'quote': $('#create-quote').val()
+        };
+        
+        $.ajax({
+            type: 'POST',
+            url: '/quotes',
+            dataType: 'json',
+            headers: {'Content-Type': 'application/json'},
+            data: JSON.stringify(createData),
+            success: function (data) {
+                var quoteTemplate = $('#quotes > li').first().clone();
+                quoteTemplate.attr('id', data._id);
+                quoteTemplate.find('.name-text').html(data.name);
+                quoteTemplate.find('.quote-text').html(data.quote);
+                $('#quotes').append(quoteTemplate);
+            }
+        })
+    });
+    
     // delete quote btn
     $('.quote > .delete-btn').on('click', function () {
         var thisElem = $(this);
@@ -12,7 +35,7 @@ $(function () {
             dataType: 'json',
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify(deleteData),
-            success: function(data) {
+            success: function (data) {
                 $('#' + data._id).remove();
             }
         });       
@@ -26,7 +49,7 @@ $(function () {
             $(this).siblings('.update-info').addClass('hidden');
     });
     
-    $('.cancel').on('click', function() {
+    $('.cancel').on('click', function () {
         $(this).last().parent().addClass('hidden');
     });
     
@@ -46,9 +69,9 @@ $(function () {
             dataType: 'json',
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify(updatedData),
-            success: function(data) {
-                $('#' + data._id + ' > #quote-text').html(data.quote);
-                $('#' + data._id + ' > #name-text').html(data.name);
+            success: function (data) {
+                $('#' + data._id + ' > .quote-text').html(data.quote);
+                $('#' + data._id + ' > .name-text').html(data.name);
                 $('#' + data._id + ' > .update-info').addClass('hidden');
             }
         });

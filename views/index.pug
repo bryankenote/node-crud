@@ -5,20 +5,20 @@ block content
     h1 Just another CRUDy quote app
     
     h4 Add a new quote
-    form(action="/quotes" method="POST")
-      input(type="text" placeholder="name" name="name" required)
-      input(type="text" placeholder="quote" name="quote" required)
-      button(type="submit")
-        i(class="fa fa-plus" aria-hidden="true")
+    //-form(action="/quotes" method="POST")
+    input(id="create-name" type="text" placeholder="name" name="name")
+    input(id="create-quote" type="text" placeholder="quote" name="quote")
+    button#save-quote
+      i(class="fa fa-plus" aria-hidden="true")
       
     hr
     
     h3 Quotes
-    ul.quotes
+    ul#quotes
       each quote in quotes
         li.quote(id=quote._id)
-          span#quote-text= quote.quote
-          span#name-text= quote.name
+          span.quote-text= quote.quote
+          span.name-text= quote.name
           button.update-btn
             i(class="fa fa-pencil" aria-hidden="true")
           button.delete-btn
@@ -26,7 +26,7 @@ block content
           .update-info(class="hidden")
             input(class="update-name" type="text" placeholder="name" name="name")
             input(class="update-quote" type="text" placeholder="quote" name="quote")
-            button(id=quote._id class="update-confirm")
+            button.update-confirm
               i(class="fa fa-check" aria-hidden="true")
             button.cancel
               i(class="fa fa-times" aria-hidden="true")

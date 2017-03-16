@@ -30,6 +30,7 @@ router.post('/quotes', function (req, res) {
         if (err) {
             res.send("There was a problem adding the quote to the database.");
         } else {
+            res.send(doc);
             res.redirect('/');
         }
     });
