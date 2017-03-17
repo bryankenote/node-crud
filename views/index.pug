@@ -1,32 +1,51 @@
 extends layout
 
 block content
+  h1#header Just another CRUDy quote app.
   .container
-    h1 Just another CRUDy quote app
     
-    h4 Add a new quote
-    //-form(action="/quotes" method="POST")
-    input(id="create-name" type="text" placeholder="name" name="name")
-    input(id="create-quote" type="text" placeholder="quote" name="quote")
-    button#save-quote
-      i(class="fa fa-plus" aria-hidden="true")
-      
+    .row
+      .col-12
+        h4 Add a new quote
+    
+    .row
+      .col-xs-12.col-sm-12.col-md-6.col-lg-4
+        input(id="create-name" class="form-control form-control-md" type="text" placeholder="name" name="name")
+    .row
+      .col-xs-12.col-sm-12.col-md-6.col-lg-4
+        textarea(id="create-quote" placeholder="  quote" name="quote")
+    .row
+      .col-xs-12.col-sm-12.col-md-6.col-lg-4
+        button(id="save-quote" class="btn btn-success btn-sm" type="button") 
+          i(class="fa fa-plus" aria-hidden="true")
+        
     hr
-    
+     
     h3 Quotes
     ul#quotes
       each quote in quotes
         li.quote(id=quote._id)
-          span.quote-text= quote.quote
-          span.name-text= quote.name
-          button.update-btn
+          .row
+            .col-xs-12.col-sm-12.col-md-6.col-lg-4
+              i(class="fa fa-quote-left" aria-hidden="true")
+              blockquote.quote-text= quote.quote
+          footer -
+            cite.name-text= quote.name
+          button(class="update-btn btn btn-primary btn-sm" type="button")
             i(class="fa fa-pencil" aria-hidden="true")
-          button.delete-btn
-            i(class="fa fa-trash" aria-hidden="true")
+          button(class="delete-btn btn btn-danger btn-sm" type="button")
+            i(class="fa fa-minus" aria-hidden="true")
           .update-info(class="hidden")
-            input(class="update-name" type="text" placeholder="name" name="name")
-            input(class="update-quote" type="text" placeholder="quote" name="quote")
-            button.update-confirm
-              i(class="fa fa-check" aria-hidden="true")
-            button.cancel
-              i(class="fa fa-times" aria-hidden="true")
+            .row
+              .col-xs-12.col-sm-12.col-md-6.col-lg-4
+                input(class="form-control form-control-md update-name" type="text" placeholder="name" name="name")
+            .row
+              .col-xs-12.col-sm-12.col-md-6.col-lg-4
+                textarea(class="update-quote" placeholder="  quote" name="quote")
+            .row
+              .col-6.col-sm-6.col-md-3.col-lg-2(class="no-pad-right")
+                button(class="update-confirm btn btn-success btn-sm" type="button")
+                  i(class="fa fa-check" aria-hidden="true")
+              .col-6.col-sm-6.col-md-3.col-lg-2(class="no-pad-left")
+                button(class="cancel btn btn-danger btn-sm" type="button")
+                  i(class="fa fa-times" aria-hidden="true")
