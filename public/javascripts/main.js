@@ -6,9 +6,8 @@ $(function () {
             'quote': $('#create-quote').val()
         };
         
-        if(!validParams(createData.name, createData.quote)) {
+        if(!validParams(createData.name, createData.quote))
             return;
-        }
         
         $.ajax({
             type: 'POST',
@@ -67,6 +66,9 @@ $(function () {
             'name': thisElem.siblings('input.update-name').val(),
             'quote': thisElem.siblings('input.update-quote').val(),
         };
+        
+        if(!validParams(updatedData.name, updatedData.quote))
+            return;
         
         $.ajax({
             type: 'PUT',
