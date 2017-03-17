@@ -17,6 +17,8 @@ $(function () {
             headers: {'Content-Type': 'application/json'},
             data: JSON.stringify(createData),
             success: function (data) {
+                $('#create-name').val('');
+                $('#create-quote').val('');
                 var quoteTemplate = $('#quotes > li').first().clone(true, true);
                 quoteTemplate.attr('id', data._id);
                 quoteTemplate.find('.name-text').html(data.name);
@@ -27,10 +29,10 @@ $(function () {
     });
     
     // delete quote btn
-    $('.quote > .delete-btn').on('click', function () {
+    $('.delete-btn').on('click', function () {
         var thisElem = $(this);
         var deleteData = {
-            'id': $(this).last().parent().prop('id'),
+            'id': $(this).parent().parent().parent().prop('id'),
         };
         
         $.ajax({
@@ -46,15 +48,15 @@ $(function () {
     });
     
     // edit quote btn
-    $('.quote > .update-btn').on('click', function () {
-        if ($(this).siblings('.update-info').hasClass('hidden'))
-            $(this).siblings('.update-info').removeClass('hidden');
+    $('.update-btn').on('click', function () {
+        if ($(this).parent().parent().siblings('.update-info').hasClass('hidden'))
+            $(this).parent().parent().siblings('.update-info').removeClass('hidden');
         else
-            $(this).siblings('.update-info').addClass('hidden');
+            $(this).parent().parent().siblings('.update-info').addClass('hidden');
     });
     
     $('.cancel').on('click', function () {
-        $(this).last().parent().addClass('hidden');
+        $(this).parent().parent().parent().addClass('hidden');
     });
     
     // update quote btn
@@ -80,6 +82,10 @@ $(function () {
         });
     });
 });
+
+function removeFromStr(char) {
+    return
+}
 
 function validParams() {
     var result = true;
