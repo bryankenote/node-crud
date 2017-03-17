@@ -38,7 +38,8 @@ h1 {
   text-align: center; }
 
 blockquote {
-  font-family: 'Cuprum', sans-serif; }
+  font-family: 'Cuprum', sans-serif;
+  font-style: italic; }
 
 cite {
   font-family: 'Lobster', cursive; }
