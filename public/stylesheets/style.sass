@@ -18,6 +18,7 @@ textarea
   //background-color: red
   margin: 5px
   
+  
 .fa-quote-left
   position: relative
   left: -20px
@@ -34,6 +35,10 @@ textarea
   
 div[class^="col-"] button, div[class*=" col-"] button
   width: 100%
+  transform: translate(0) rotate3d(0) scale(1)
+  transition: opacity 150ms ease-out, transform 150ms ease-out
+  &:hover
+    transform: scale(1.025)
   
 ul
   list-style-type: none

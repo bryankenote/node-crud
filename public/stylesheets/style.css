@@ -25,7 +25,11 @@ textarea {
   display: none; }
 
 div[class^="col-"] button, div[class*=" col-"] button {
-  width: 100%; }
+  width: 100%;
+  transform: translate(0) rotate3d(0) scale(1);
+  transition: opacity 150ms ease-out, transform 150ms ease-out; }
+  div[class^="col-"] button:hover, div[class*=" col-"] button:hover {
+    transform: scale(1.025); }
 
 ul {
   list-style-type: none; }

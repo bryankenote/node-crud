@@ -85,10 +85,6 @@ $(function () {
     });
 });
 
-function removeFromStr(char) {
-    return
-}
-
 function validParams() {
     var result = true;
     var args = Array.prototype.slice.call(arguments);
