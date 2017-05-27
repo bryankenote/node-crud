@@ -56,7 +56,8 @@ $(function () {
     });
     
     $('.cancel').on('click', function () {
-        $(this).parent().parent().parent().addClass('hidden');
+        $(this).parent().parent().parent().toggleClass('hidden');
+        $(this).parent().parent().parent().toggleClass('fade-in');
     });
     
     // update quote btn

@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     var db = req.db;
     var collection = db.get('quoteCollection');
-    collection.find({},{},function(err,docs){
+    collection.find({},{}, function(err,docs) {
         if (err) {
             res.send("There was a problem retrieving quotes from the database.");
         } else {
@@ -26,7 +26,7 @@ router.post('/quotes', function (req, res) {
     collection.insert({
         "name": name,
         "quote": quote
-    }, (err, doc) => {
+    }, function (err, doc) {
         if (err) {
             res.send("There was a problem adding the quote to the database.");
         } else {
