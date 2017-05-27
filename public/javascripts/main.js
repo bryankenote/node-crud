@@ -19,6 +19,9 @@ $(function () {
                 $('#create-name').val('');
                 $('#create-quote').val('');
                 var quoteTemplate = $('#quotes > li').first().clone(true, true);
+                if (quoteTemplate.length === 0)
+                    /* global location */
+                    location.reload();
                 quoteTemplate.attr('id', data._id);
                 quoteTemplate.find('.name-text').html(data.name);
                 quoteTemplate.find('.quote-text').html(data.quote);
