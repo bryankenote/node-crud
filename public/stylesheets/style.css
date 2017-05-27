@@ -10,6 +10,7 @@ textarea {
 .add-section {
   display: block;
   margin: 0 auto;
+  max-width: 90%;
   width: 400px; }
   .add-section #save-quote {
     width: 100%; }
