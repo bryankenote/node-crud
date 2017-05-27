@@ -31,3 +31,6 @@ npm-debug.log
 
 # Database
 data/
+
+.env
+TO_DO.txt
