@@ -1,2 +1,3 @@
-# node-crud
-I needed to learn node so I made this simple crud.
+## node-crud
+Simple quote app.
+###### Live At https://kenoteb-quote-app.herokuapp.com/
