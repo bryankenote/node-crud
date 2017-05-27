@@ -25,6 +25,7 @@ textarea
 
 .quote
   //background-color: red
+  //display: flex
   margin: 5px
   
   
@@ -38,10 +39,44 @@ textarea
 
 .no-pad-right
   padding-right: 0
-
-.hidden
-  display: none
   
+.bg-shadow
+  background-color: #000
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: 1
+  
+  transition: opacity 600ms ease-in-out
+  -moz-transition: opacity 600ms ease-in-out
+  -webkit-transition: opacity 600ms ease-in-out
+  
+  &.hidden
+    visibility: hidden
+    opacity: 0
+    
+  &.fade-in 
+    visibility: visible
+    opacity: 0.6
+
+.menu
+  top: 5px
+  position: relative
+
+  transition: opacity 600ms ease-in-out
+  -moz-transition: opacity 600ms ease-in-out
+  -webkit-transition: opacity 600ms ease-in-out
+  &.hidden
+    height: 0
+    visibility: hidden
+    opacity: 0
+  
+  &.fade-in
+    visibility: visible
+    opacity: 1
+
 div[class^="col-"] button, div[class*=" col-"] button
   width: 100%
   transform: translate(0) rotate3d(0) scale(1)

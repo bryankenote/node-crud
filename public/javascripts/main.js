@@ -51,10 +51,8 @@ $(function () {
     
     // edit quote btn
     $('.update-btn').on('click', function () {
-        if ($(this).parent().parent().siblings('.update-info').hasClass('hidden'))
-            $(this).parent().parent().siblings('.update-info').removeClass('hidden');
-        else
-            $(this).parent().parent().siblings('.update-info').addClass('hidden');
+        $(this).parent().parent().siblings('.update-info').toggleClass('hidden');
+        $(this).parent().parent().siblings('.update-info').toggleClass('fade-in');
     });
     
     $('.cancel').on('click', function () {
