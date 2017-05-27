@@ -4,18 +4,16 @@ block content
   h1#header Just another CRUDy quote app.
   .container
     
-    .row
-      .col-12
-        h4 Add a new quote
-    
-    .row
-      .col-xs-12.col-sm-8.col-md-6.col-lg-4
+    .add-section
+      .row
+        .col-12
+          h4 Add a new quote
+      
+      .row
         input(id="create-name" class="form-control form-control-md" type="text" placeholder="name" name="name")
-    .row
-      .col-xs-12.col-sm-8.col-md-6.col-lg-4
+      .row
         textarea(id="create-quote" placeholder="  quote" name="quote")
-    .row
-      .col-xs-12.col-sm-8.col-md-6.col-lg-4
+      .row
         button(id="save-quote" class="btn btn-success btn-sm" type="button") 
           i(class="fa fa-plus" aria-hidden="true")
         

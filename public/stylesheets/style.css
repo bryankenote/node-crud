@@ -7,6 +7,13 @@ textarea {
   resize: none;
   width: 100%; }
 
+.add-section {
+  display: block;
+  margin: 0 auto;
+  width: 400px; }
+  .add-section #save-quote {
+    width: 100%; }
+
 .quote {
   margin: 5px; }
 
